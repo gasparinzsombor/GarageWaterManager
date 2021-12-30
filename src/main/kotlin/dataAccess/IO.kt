@@ -8,6 +8,8 @@ interface IO {
 
     fun connectDevice()
 
+    fun selectDevice(name: String)
+
 
 
 }

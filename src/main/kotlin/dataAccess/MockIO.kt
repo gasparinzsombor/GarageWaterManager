@@ -3,6 +3,7 @@ package dataAccess
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import model.MultiplePortsException
 import kotlin.random.Random
 
 class MockIO : IO {
@@ -13,12 +14,20 @@ class MockIO : IO {
         get() = onDeviceDisconnect != null
 
     override fun connectDevice() {
-        return
+        throw MultiplePortsException(listOf("COM1", "COM2", "COM3"))
+    }
+
+    override fun selectDevice(name: String) {
+
     }
 
     init {
         GlobalScope.launch {
-            while(true) {
+            while(!isDeviceSelected) {
+                delay(1000)
+            }
+
+            while(isDeviceSelected) {
                 delay(3000)
                 val tooLittle = Random.nextBoolean()
                 val tooMuch = Random.nextBoolean()

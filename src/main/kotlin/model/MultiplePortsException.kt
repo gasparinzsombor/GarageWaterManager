@@ -1,4 +1,4 @@
 package model
 
-class MultiplePortsException {
+class MultiplePortsException(val ports: List<String>) : Exception() {
 }

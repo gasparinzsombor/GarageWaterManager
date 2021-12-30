@@ -8,6 +8,6 @@ import androidx.compose.runtime.Composable
 fun ErrorUI(throwable: Throwable) {
     Column {
         Text("Hiba!")
-        Text(throwable.message ?: "Ismeretlen hiba")
+        Text(throwable.localizedMessage ?: "Ismeretlen hiba")
     }
 }

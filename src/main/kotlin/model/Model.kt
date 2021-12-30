@@ -25,6 +25,17 @@ class Model(private val io: IO) {
         }
     }
 
+    fun selectDevice(name: String) {
+        try {
+            io.selectDevice(name)
+            state.value = Lce.Loading
+        } catch (e: Exception) {
+            e.printStackTrace()
+            state.value = Lce.Error(e)
+        }
+
+    }
+
     private fun onDeviceDisconnect() {
         state.value = Lce.Error(Exception("Az eszköz lecsatlakozott."))
     }
