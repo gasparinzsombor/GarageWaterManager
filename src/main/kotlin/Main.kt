@@ -18,22 +18,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import model.Model
+import view.App
 import view.MainUi
 import viewModel.ViewModel
 
-@Composable
-fun App(viewModel: ViewModel) {
-
-    MaterialTheme {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-
-            Text("Garázs víz", modifier = Modifier.padding(10.dp))
-            MainUi(viewModel)
-        }
-    }
-}
 
 
 fun main() {
