@@ -19,6 +19,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation(compose.desktop.currentOs)
+    implementation("com.fazecast:jSerialComm:[2.0.0,3.0.0)")
 }
 
 tasks.test {
