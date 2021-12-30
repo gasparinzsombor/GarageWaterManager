@@ -4,7 +4,7 @@ import com.fazecast.jSerialComm.SerialPort
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-class ArduinoIO : IO {
+/*class ArduinoIO : IO {
 
     private var port: SerialPort? = null
 
@@ -40,4 +40,4 @@ class ArduinoIO : IO {
     override suspend fun readSensorData(): SensorData {
         TODO("Not yet implemented")
     }
-}
+}*/

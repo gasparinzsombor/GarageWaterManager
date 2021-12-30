@@ -13,6 +13,8 @@ import model.WaterLevel
 fun ContentUI(appState: MutableState<Lce.Content<AppState>>) {
 
         val state = appState.value.data
+        val isCleanWaterPumpAvailable = state.waterLevel != WaterLevel.High
+        val isDirtyWaterPumpAvailable = state.waterLevel != WaterLevel.Low
 
         Row {
                 Text("Szennyvíz hordó szintje: ")
@@ -26,7 +28,7 @@ fun ContentUI(appState: MutableState<Lce.Content<AppState>>) {
 
         Row {
                 Text("Tisztavizes szivattyú engedélyezve: ")
-                if(state.isCleanWaterPumpAvailable) {
+                if(isCleanWaterPumpAvailable) {
                         Text("✓", color = Color.Green)
                 }
                 else {
@@ -36,7 +38,7 @@ fun ContentUI(appState: MutableState<Lce.Content<AppState>>) {
 
         Row {
                 Text("Szennyvíz szivattyú engedélyezve: ")
-                if(state.isDirtyWaterPumpAvailable) {
+                if(isDirtyWaterPumpAvailable) {
                         Text("✓", color = Color.Green)
                 }
                 else {
