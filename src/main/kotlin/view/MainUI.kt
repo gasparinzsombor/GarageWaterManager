@@ -12,6 +12,6 @@ fun MainUi(viewModel: ViewModel) {
     when(state.value) {
         is Lce.Loading -> LoadingUI()
         is Lce.Content -> ContentUI(state as MutableState<Lce.Content<AppState>>)
-        is Lce.Error -> ErrorUI()
+        is Lce.Error -> ErrorUI(Exception((state.value as Lce.Error).error))
     }
 }

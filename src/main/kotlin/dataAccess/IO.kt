@@ -1,6 +1,10 @@
 package dataAccess
 
 interface IO {
+    var onDeviceDisconnect: (() -> Unit)?
+
+    fun connectDevice()
+
     suspend fun disableCleanWaterPump()
     suspend fun enableCleanWaterPump()
 
@@ -8,4 +12,6 @@ interface IO {
     suspend fun enableDirtyWaterPump()
 
     suspend fun readSensorData(): SensorData
+
+
 }
